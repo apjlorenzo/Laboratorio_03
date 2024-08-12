@@ -15,6 +15,7 @@ namespace Laboratorio_03
             Console.WriteLine("1.Registrar cliente");
             Console.WriteLine("2.Registrar reserva");
             Console.WriteLine("3.Mostrar información");
+            Console.WriteLine("4.Salir");
             Console.Write("Ingrese una opción: ");
         }
         public void MenuClientes()
