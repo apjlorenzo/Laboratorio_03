@@ -2,6 +2,7 @@
 
 List<Cliente> listaClientes = new List<Cliente>();
 ClienteRegular clietneRegular = new ClienteRegular(null,null,null);
+ClienteVip clienteVip = new ClienteVip(null,null,null,0); 
 Menu menu= new Menu();
 bool condicionMenuPrincipal = true;
 do
@@ -26,6 +27,8 @@ do
                             break;
 
                         case "b":
+                            clienteVip.RegistrarClientes();
+                            menu.MensajeRegistroClientes();
                             break;
 
                         case "c":
@@ -44,6 +47,7 @@ do
             case 2:
                 break;
             case 3:
+                clietneRegular.MostrarInformacion();
                 break;
             case 4:
                 condicionMenuPrincipal = false;

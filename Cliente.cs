@@ -13,7 +13,7 @@ namespace Laboratorio_03
         public string correo=null;
         public string direccion=null;
         public List<Cliente> listaClientes = new List<Cliente>();
-        Cliente cliente;
+        public Cliente cliente;
 
 
         //Atributos 
@@ -37,6 +37,16 @@ namespace Laboratorio_03
             Console.Write("Ingrese la dirección del cliente: ");
             direccion = Console.ReadLine();
         }
-
+        public virtual void MostrarInformacion()
+        {
+            Console.Clear();
+            foreach (Cliente cliente in listaClientes)
+            {
+                Console.WriteLine("Nombre del cliente: " + cliente.Nombre);
+                Console.WriteLine("Correo del cliente: " + cliente.Correo);
+                Console.WriteLine("Dirección del cliente: " + cliente.Direccion);
+            }
+            Console.ReadKey();
+        }
     }
 }

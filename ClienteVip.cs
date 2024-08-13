@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Laboratorio_03
 {
-    public class ClienteRegular : Cliente
+    internal class ClienteVip : Cliente
     {
-        public ClienteRegular(string nombre, string correo, string direccion) : base(nombre, correo, direccion)
-        { 
+        public double Descuento { get; set; }
+        public ClienteVip(string nombre, string correo, string direccion, double descuento) : base(nombre, correo, direccion)
+        {
+            Descuento = descuento;
         }
         public override void RegistrarClientes()
         {
@@ -20,14 +22,10 @@ namespace Laboratorio_03
             {
                 Console.WriteLine($"\nCliente No.{i + 1}: ");
                 base.RegistrarClientes();
-                listaClientes.Add(new ClienteRegular(nombre,correo,direccion));
+                Console.Write("Ingres el descuento del cliente: %");
+                double descuento = double.Parse(Console.ReadLine());
+                listaClientes.Add(new ClienteVip(nombre, correo, direccion, descuento));
             }
-
         }
-        public override void MostrarInformacion()
-        {
-                base.MostrarInformacion();
-        }
-
     }
 }
