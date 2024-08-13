@@ -27,5 +27,12 @@ namespace Laboratorio_03
             Console.WriteLine("c.Regresar");
             Console.Write("Ingrese una opción: ");
         }
+        public void MensajeRegistroClientes()
+        {
+            Console.Clear();
+            Console.WriteLine("Clientes regsitrados correctamente.");
+            Console.WriteLine("\nPresione cualquier tecla para continuar: ");
+            Console.ReadKey();
+        }
     }
 }

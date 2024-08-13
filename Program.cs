@@ -1,5 +1,7 @@
 ﻿using Laboratorio_03;
 
+List<Cliente> listaClientes = new List<Cliente>();
+ClienteRegular clietneRegular = new ClienteRegular(null,null,null);
 Menu menu= new Menu();
 bool condicionMenuPrincipal = true;
 do
@@ -19,6 +21,8 @@ do
                     switch (opcion2)
                     {
                         case "a":
+                            clietneRegular.RegistrarClientes();
+                            menu.MensajeRegistroClientes();
                             break;
 
                         case "b":
