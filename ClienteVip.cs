@@ -9,7 +9,7 @@ namespace Laboratorio_03
     internal class ClienteVip : Cliente
     {
         public double Descuento { get; set; }
-        public ClienteVip(string nombre, string correo, string direccion, double descuento) : base(nombre, correo, direccion)
+        public ClienteVip(string nombre, string correo, int telefono, double descuento) : base(nombre, correo, telefono)
         {
             Descuento = descuento;
         }
@@ -22,9 +22,19 @@ namespace Laboratorio_03
             {
                 Console.WriteLine($"\nCliente No.{i + 1}: ");
                 base.RegistrarClientes();
-                Console.Write("Ingres el descuento del cliente: %");
+                Console.Write("Ingrese el descuento del cliente: %");
                 double descuento = double.Parse(Console.ReadLine());
-                listaClientes.Add(new ClienteVip(nombre, correo, direccion, descuento));
+                listaClientes.Add(new ClienteVip(nombre, correo, telefono, descuento));
+            }
+        }
+        public void MostrarInformacionVip()
+        {
+            foreach (ClienteVip cliente in listaClientes)
+            {
+                Console.WriteLine("\nNombre del cliente: " + cliente.Nombre);
+                Console.WriteLine("Correo del cliente: " + cliente.Correo);
+                Console.WriteLine("Telefono del cliente: " + cliente.Telefono);
+                Console.WriteLine($"Descuento: {cliente.Descuento}%");
             }
         }
     }

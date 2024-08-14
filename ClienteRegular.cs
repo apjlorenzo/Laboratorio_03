@@ -8,7 +8,7 @@ namespace Laboratorio_03
 {
     public class ClienteRegular : Cliente
     {
-        public ClienteRegular(string nombre, string correo, string direccion) : base(nombre, correo, direccion)
+        public ClienteRegular(string nombre, string correo, int telefono) : base(nombre, correo, telefono)
         { 
         }
         public override void RegistrarClientes()
@@ -20,13 +20,13 @@ namespace Laboratorio_03
             {
                 Console.WriteLine($"\nCliente No.{i + 1}: ");
                 base.RegistrarClientes();
-                listaClientes.Add(new ClienteRegular(nombre,correo,direccion));
+                listaClientes.Add(new ClienteRegular(nombre,correo,telefono));
             }
 
         }
         public override void MostrarInformacion()
         {
-                base.MostrarInformacion();
+            base.MostrarInformacion();
         }
 
     }

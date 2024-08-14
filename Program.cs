@@ -1,8 +1,10 @@
 ﻿using Laboratorio_03;
 
 List<Cliente> listaClientes = new List<Cliente>();
-ClienteRegular clietneRegular = new ClienteRegular(null,null,null);
-ClienteVip clienteVip = new ClienteVip(null,null,null,0); 
+ClienteRegular clienteRegular = new ClienteRegular(null,null,0);
+ClienteVip clienteVip = new ClienteVip(null,null,0,0);
+List<Reserva> listaReservas = new List<Reserva>();
+Reserva reserva = new Reserva(0,null,null,null);
 Menu menu= new Menu();
 bool condicionMenuPrincipal = true;
 do
@@ -22,7 +24,7 @@ do
                     switch (opcion2)
                     {
                         case "a":
-                            clietneRegular.RegistrarClientes();
+                            clienteRegular.RegistrarClientes();
                             menu.MensajeRegistroClientes();
                             break;
 
@@ -47,7 +49,20 @@ do
             case 2:
                 break;
             case 3:
-                clietneRegular.MostrarInformacion();
+                menu.MenuMostrarInfo();
+                int opcion3 = int.Parse(Console.ReadLine());
+                switch(opcion3)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.WriteLine("Clientes regulares:");
+                        clienteRegular.MostrarInformacion();
+                        Console.WriteLine("\nClientes VIP:");
+                        clienteVip.MostrarInformacionVip();
+                        Console.ReadKey();
+                        break;
+                }
+                Console.ReadKey();
                 break;
             case 4:
                 condicionMenuPrincipal = false;

@@ -11,7 +11,8 @@ namespace Laboratorio_03
         //Variables globales
         public string nombre=null;
         public string correo=null;
-        public string direccion=null;
+        public int telefono=0;
+        public string nombreReserva = null;
         public List<Cliente> listaClientes = new List<Cliente>();
         public Cliente cliente;
 
@@ -19,13 +20,13 @@ namespace Laboratorio_03
         //Atributos 
         public string Nombre { get; set; }
         public string Correo { get; set; }
-        public string Direccion { get; set; }
+        public int Telefono { get; set; }
         //Método constructor
-        public Cliente(string nombre, string correo, string direccion)
+        public Cliente(string nombre, string correo, int telefono)
         {
             Nombre = nombre;
             Correo = correo;
-            Direccion = direccion;
+            Telefono = telefono;
         }
         //Métodos
         public virtual void RegistrarClientes()
@@ -34,19 +35,17 @@ namespace Laboratorio_03
             nombre = Console.ReadLine();
             Console.Write("Ingrese el correo del cliente: ");
             correo = Console.ReadLine();
-            Console.Write("Ingrese la dirección del cliente: ");
-            direccion = Console.ReadLine();
+            Console.Write("Ingrese el número de telefono del cliente: ");
+            telefono = int.Parse(Console.ReadLine());
         }
         public virtual void MostrarInformacion()
         {
-            Console.Clear();
             foreach (Cliente cliente in listaClientes)
             {
-                Console.WriteLine("Nombre del cliente: " + cliente.Nombre);
+                Console.WriteLine("\nNombre del cliente: " + cliente.Nombre);
                 Console.WriteLine("Correo del cliente: " + cliente.Correo);
-                Console.WriteLine("Dirección del cliente: " + cliente.Direccion);
+                Console.WriteLine("Telefono del cliente: " + cliente.Telefono);
             }
-            Console.ReadKey();
         }
     }
 }
