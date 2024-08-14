@@ -37,5 +37,24 @@ namespace Laboratorio_03
                 Console.WriteLine($"Descuento: {cliente.Descuento}%");
             }
         }
+        public virtual void BuscarCliente()
+        {
+            Console.Clear();
+            Console.Write("Ingrese el nombre del cliente que quiere buscar: ");
+            string nombre = Console.ReadLine().ToUpper();
+            ClienteVip encontrar = listaClientes.OfType<ClienteVip>().FirstOrDefault(p => p.Nombre == nombre);
+            if (encontrar != null)
+            {
+                Console.WriteLine("Información del cliente VIP: ");
+                Console.WriteLine("Nombre: " + encontrar.Nombre);
+                Console.WriteLine("Correo: " + encontrar.Correo);
+                Console.WriteLine("Telefono: " + encontrar.Telefono);
+                Console.WriteLine($"Descuento: {encontrar.Descuento}%");
+            }
+            else
+            {
+                Console.WriteLine("No existe ningún cliente VIP con ese nombre.");
+            }
+        }
     }
 }

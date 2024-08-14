@@ -61,6 +61,31 @@ do
                         clienteVip.MostrarInformacionVip();
                         Console.ReadKey();
                         break;
+                    case 2:
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.Write("Ingrese que tipo de cliente quiere buscar 1.Regular o 2.VIP: ");
+                        int tipo = int.Parse(Console.ReadLine());
+                        if (tipo == 1)
+                        {
+                            clienteRegular.BuscarCliente();
+                        }
+                        else if (tipo == 2)
+                        {
+                            clienteVip.BuscarCliente();
+                        }
+                        else
+                        {
+                            Console.WriteLine("No es una opción válida.");
+                        }
+                        Console.WriteLine("\nPresione cualquier tecla para continuar: ");
+                        Console.ReadKey();
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
                 }
                 Console.ReadKey();
                 break;

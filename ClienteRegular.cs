@@ -28,6 +28,23 @@ namespace Laboratorio_03
         {
             base.MostrarInformacion();
         }
-
+        public virtual void BuscarCliente()
+        {
+            Console.Clear();
+            Console.Write("Ingrese el nombre del cliente que quiere buscar: ");
+            string nombre = Console.ReadLine().ToUpper();
+            Cliente encontrar = listaClientes.Find(p => p.Nombre == nombre);
+            if (encontrar != null)
+            {
+                Console.WriteLine("Información del cliente: ");
+                Console.WriteLine("Nombre:" + encontrar.Nombre);
+                Console.WriteLine("Correo:" + encontrar.Correo);
+                Console.WriteLine("Telefono:" + encontrar.Telefono);
+            }
+            else
+            {
+                Console.WriteLine("No existe ningún cliente con ese nombre");
+            }
+        }
     }
 }

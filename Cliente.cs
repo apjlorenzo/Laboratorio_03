@@ -32,7 +32,7 @@ namespace Laboratorio_03
         public virtual void RegistrarClientes()
         {
             Console.Write("Ingrese el nombre del cliente: ");
-            nombre = Console.ReadLine();
+            nombre = Console.ReadLine().ToUpper();
             Console.Write("Ingrese el correo del cliente: ");
             correo = Console.ReadLine();
             Console.Write("Ingrese el número de telefono del cliente: ");
