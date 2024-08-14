@@ -47,6 +47,7 @@ do
                 while (condicionMenucliente);
                 break;
             case 2:
+                reserva.RegistrarReserva();
                 break;
             case 3:
                 menu.MenuMostrarInfo();
@@ -62,6 +63,9 @@ do
                         Console.ReadKey();
                         break;
                     case 2:
+                        Console.Clear();
+                        reserva.MostrarInformacion();
+                        Console.ReadKey();
                         break;
                     case 3:
                         Console.Clear();
@@ -85,6 +89,11 @@ do
                     case 4:
                         break;
                     case 5:
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("No es una opción válida");
+                        Console.ReadKey();
                         break;
                 }
                 Console.ReadKey();

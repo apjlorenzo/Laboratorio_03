@@ -17,6 +17,9 @@ namespace Laboratorio_03
             Nombre = nombre;
             Precio = precio;
         }
-        
+        public string MostrarPlato()
+        {
+            return $"{Nombre}--------------Q{Precio}";
+        }
     }
 }
