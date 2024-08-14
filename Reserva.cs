@@ -86,7 +86,11 @@ namespace Laboratorio_03
                         case 6:
                             listaReservas.Add(new Reserva(id, fecha, hora, platos));
                             continuar = false;
-                            break; 
+                            break;
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("No es una opción válida.");
+                            break;
                     }
                 }
             }
@@ -115,6 +119,35 @@ namespace Laboratorio_03
                 }
                 Console.WriteLine("El total de la reserva es: Q"+CalcularTotal(reserva.Platos));
             }
+        }
+        public void BuscarReserva()
+        {
+            Console.Clear();
+            Console.Write("Ingrese el ID de la reserva que quiere buscar: ");
+            int id = int.Parse(Console.ReadLine());
+            Reserva encontrar = listaReservas.Find(p => p.Id == id);
+            if (encontrar != null)
+            {
+                Console.WriteLine("\nInformación de la reserva: ");
+                Console.WriteLine("ID:" + encontrar.Id);
+                Console.WriteLine("Fecha:" + encontrar.Fecha);
+                Console.WriteLine("Hora:" + encontrar.Hora);
+                Console.WriteLine("Platos registrados de la reserva:");
+                foreach (Reserva reserva in listaReservas)
+                {
+                    foreach(Plato plato in reserva.Platos)
+                    {
+                        Console.WriteLine($"- {plato.MostrarPlato()}");
+                    }
+                    Console.WriteLine("El total de la reserva es: Q" + CalcularTotal(reserva.Platos));
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("No existe ningún cliente con ese nombre");
+            }
+            Console.WriteLine("\nPresione cualquier tecla para continuar: ");
         }
     }
 }

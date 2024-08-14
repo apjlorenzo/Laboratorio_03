@@ -1,9 +1,9 @@
 ﻿using Laboratorio_03;
 
 List<Cliente> listaClientes = new List<Cliente>();
-ClienteRegular clienteRegular = new ClienteRegular(null,null,0);
-ClienteVip clienteVip = new ClienteVip(null,null,0,0);
 List<Reserva> listaReservas = new List<Reserva>();
+ClienteRegular clienteRegular = new ClienteRegular(null, null, 0);
+ClienteVip clienteVip = new ClienteVip(null, null, 0, 0);
 Reserva reserva = new Reserva(0,null,null,null);
 Menu menu= new Menu();
 bool condicionMenuPrincipal = true;
@@ -48,55 +48,60 @@ do
                 break;
             case 2:
                 reserva.RegistrarReserva();
+                menu.MensajeRegistroReservas();
                 break;
             case 3:
-                menu.MenuMostrarInfo();
-                int opcion3 = int.Parse(Console.ReadLine());
-                switch(opcion3)
+                bool menuInfo = true;
+                while (menuInfo)
                 {
-                    case 1:
-                        Console.Clear();
-                        Console.WriteLine("Clientes regulares:");
-                        clienteRegular.MostrarInformacion();
-                        Console.WriteLine("\nClientes VIP:");
-                        clienteVip.MostrarInformacionVip();
-                        Console.ReadKey();
-                        break;
-                    case 2:
-                        Console.Clear();
-                        reserva.MostrarInformacion();
-                        Console.ReadKey();
-                        break;
-                    case 3:
-                        Console.Clear();
-                        Console.Write("Ingrese que tipo de cliente quiere buscar 1.Regular o 2.VIP: ");
-                        int tipo = int.Parse(Console.ReadLine());
-                        if (tipo == 1)
-                        {
-                            clienteRegular.BuscarCliente();
-                        }
-                        else if (tipo == 2)
-                        {
-                            clienteVip.BuscarCliente();
-                        }
-                        else
-                        {
-                            Console.WriteLine("No es una opción válida.");
-                        }
-                        Console.WriteLine("\nPresione cualquier tecla para continuar: ");
-                        Console.ReadKey();
-                        break;
-                    case 4:
-                        break;
-                    case 5:
-                        break;
-                    default:
-                        Console.Clear();
-                        Console.WriteLine("No es una opción válida");
-                        Console.ReadKey();
-                        break;
+                    menu.MenuMostrarInfo();
+                    int opcion3 = int.Parse(Console.ReadLine());
+                    switch (opcion3)
+                    {
+                        case 1:
+                            Console.Clear();
+                            Console.WriteLine("Clientes regulares:");
+                            clienteRegular.MostrarInformacion();
+                            Console.WriteLine("\nClientes VIP:");
+                            clienteVip.MostrarInformacionVip();
+                            Console.WriteLine("\nPresione cualquier tecla para continuar: ");
+                            break;
+                        case 2:
+                            Console.Clear();
+                            reserva.MostrarInformacion();
+                            break;
+                        case 3:
+                            Console.Clear();
+                            Console.Write("Ingrese que tipo de cliente quiere buscar 1.Regular o 2.VIP: ");
+                            int tipo = int.Parse(Console.ReadLine());
+                            if (tipo == 1)
+                            {
+                                clienteRegular.BuscarCliente();
+                            }
+                            else if (tipo == 2)
+                            {
+                                clienteVip.BuscarCliente();
+                            }
+                            else
+                            {
+                                Console.WriteLine("No es una opción válida.");
+                            }
+                            Console.WriteLine("\nPresione cualquier tecla para continuar: ");
+                            break;
+                        case 4:
+                            reserva.BuscarReserva();
+                            break;
+                        case 5:
+                            menuInfo = false;
+                            break;
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("No es una opción válida");
+                            Console.ReadKey();
+                            break;
+                    }
+                    Console.ReadKey(); 
                 }
-                Console.ReadKey();
                 break;
             case 4:
                 condicionMenuPrincipal = false;
